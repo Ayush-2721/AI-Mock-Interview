@@ -1,9 +1,21 @@
 import { Button } from "@/components/ui/button"
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import PublicLayouts from "@/layouts/PublicLayouts";
+import Homepage from "@/routes/home";
 
 function App() {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center">
-      <Button>Click me</Button>
+    <div>
+      <Router>
+        <Routes>
+          {/* public routes */}
+
+          <Route element={<PublicLayouts />}>
+          <Route index element={<Homepage />} />
+          </Route>
+          {/* protacted routes */}
+        </Routes>
+      </Router>
     </div>
   )
 }
